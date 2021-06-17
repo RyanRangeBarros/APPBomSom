@@ -7,6 +7,11 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.EditText;
+import android.widget.ListView;
+import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,6 +21,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.ryanandvinicius.bomsomapp.Homeprox;
 import com.ryanandvinicius.bomsomapp.MeAche.MeAche;
 import com.ryanandvinicius.bomsomapp.aboutus.animelist;
+import com.ryanandvinicius.bomsomapp.fakeDatabase.ClientRepo;
+import com.ryanandvinicius.bomsomapp.fakeDatabase.EmployeeRepo;
+import com.ryanandvinicius.bomsomapp.fakeDatabase.ProjectRepo;
 import com.ryanandvinicius.bomsomapp.forms.FormClientActivity;
 import com.ryanandvinicius.bomsomapp.forms.FormEmployeeActivity;
 import com.ryanandvinicius.bomsomapp.forms.FormProjectActivity;
@@ -24,7 +32,13 @@ import com.ryanandvinicius.bomsomapp.menulateral.Callback;
 import com.ryanandvinicius.bomsomapp.menulateral.ItensDoMenu;
 import com.ryanandvinicius.bomsomapp.menulateral.MenuEdit;
 import com.ryanandvinicius.bomsomapp.menulateral.MenuNec;
+import com.ryanandvinicius.bomsomapp.model.Client;
+import com.ryanandvinicius.bomsomapp.model.Employee;
+import com.ryanandvinicius.bomsomapp.model.MusicStyle;
+import com.ryanandvinicius.bomsomapp.model.Project;
 
+import java.sql.Date;
+import java.util.Calendar;
 import java.util.List;
 
 
@@ -80,20 +94,20 @@ public class MainActivity  extends AppCompatActivity implements Callback {
     }
 
     public void startListaClient(View view) {
-
+        addClient();
         Intent ListaCliente = new Intent(this, listacliente.class);
         startActivity(ListaCliente);
 
     }
 
     public void startListaEmpregado(View view) {
-
+        addEmployee();
         Intent ListaEmpregado = new Intent(this, listaempregado.class);
         startActivity(ListaEmpregado);
     }
 
     public void startListaProjeto(View view) {
-
+        addProject();
         Intent ListaProjeto = new Intent(this, listaprojeto.class);
         startActivity(ListaProjeto);
     }
@@ -136,7 +150,90 @@ public class MainActivity  extends AppCompatActivity implements Callback {
 
     }
 
-    
+
+    private void addClient(){
+
+        try{
+            TextView clientName = (TextView) findViewById(R.id.client_name);
+            TextView clientCpf = (TextView) findViewById(R.id.client_cpf);
+            TextView clientPhone = (TextView) findViewById(R.id.client_phone);
+            TextView clientEmail = (TextView) findViewById(R.id.client_email);
+            Spinner musicStyle = (Spinner) findViewById(R.id.music_style_spinner);
+            MusicStyle musicStyleEnum;
+
+            if (musicStyle.getSelectedItem().toString().equals("Axé")){
+                musicStyleEnum = MusicStyle.AXE;
+            }else if (musicStyle.getSelectedItem().toString().equals("Pop")){
+                musicStyleEnum = MusicStyle.POP;
+            }else if (musicStyle.getSelectedItem().toString().equals("Rock")){
+                musicStyleEnum = MusicStyle.ROCK;
+            }else if (musicStyle.getSelectedItem().toString().equals("Funk")){
+                musicStyleEnum = MusicStyle.FUNK;
+            }else if (musicStyle.getSelectedItem().toString().equals("Brega")){
+                musicStyleEnum = MusicStyle.BREGA;
+            }else{
+                musicStyleEnum = MusicStyle.OUTROS;
+            }
+            //-----------------------------------Address---------------------------
+            TextView addressStreet = (TextView) findViewById(R.id.client_address_street);
+            TextView addressNumber = (TextView) findViewById(R.id.client_address_number);
+            TextView addressComplement = (TextView) findViewById(R.id.client_address_complement);
+            TextView addressDistrict = (TextView) findViewById(R.id.client_address_district);
+
+            Client client = new Client(clientCpf.getText().toString(),clientName.getText().toString(),clientEmail.getText().toString(),clientPhone.getText().toString(), musicStyleEnum,addressStreet.getText().toString(),addressDistrict.getText().toString(),Integer.parseInt(addressNumber.getText().toString()),addressComplement.getText().toString());
+            ClientRepo.addClient(client);
+
+        }catch (Exception e){
+            e.printStackTrace();
+            System.out.println("Crash");
+        }
+    }
+
+
+    private void addEmployee(){
+
+        try{
+            TextView employeeName = (TextView) findViewById(R.id.employee_name);
+            TextView employeeCpf = (TextView) findViewById(R.id.employee_cpf);
+            TextView employeeEmail = (TextView) findViewById(R.id.employee_email);
+
+            //-----------------------------------Address---------------------------
+            TextView addressStreet = (TextView) findViewById(R.id.employee_address_street);
+            TextView addressNumber = (TextView) findViewById(R.id.employee_address_number);
+            TextView addressComplement = (TextView) findViewById(R.id.employee_address_complement);
+            TextView addressDistrict = (TextView) findViewById(R.id.employee_address_district);
+
+            Employee employee = new Employee(employeeCpf.getText().toString(),employeeName.getText().toString(),employeeEmail.getText().toString(),"", Calendar.getInstance().getTime(),addressStreet.getText().toString(),addressDistrict.getText().toString(),Integer.parseInt(addressNumber.getText().toString()),addressComplement.getText().toString());
+            EmployeeRepo.addEmployee(employee);
+        }catch (Exception e){
+            e.printStackTrace();
+            System.out.println("Crash");
+        }
+    }
+
+
+    private void addProject(){
+
+        try{
+            TextView projectName = (TextView) findViewById(R.id.project_name);
+            TextView projectDescription = (TextView) findViewById(R.id.project_description);
+            TextView projectPortifolio = (TextView) findViewById(R.id.project_portifolio);
+            TextView clientId = (TextView) findViewById(R.id.project_client_id);
+            TextView employeeId = (TextView) findViewById(R.id.project_employee_id);
+
+            //-----------------------------------Address---------------------------
+            TextView addressStreet = (TextView) findViewById(R.id.project_address_street);
+            TextView addressNumber = (TextView) findViewById(R.id.project_address_number);
+            TextView addressComplement = (TextView) findViewById(R.id.project_address_complement);
+            TextView addressDistrict = (TextView) findViewById(R.id.project_address_district);
+
+            Project project = new Project("",projectName.getText().toString(),projectDescription.getText().toString(),EmployeeRepo.find(employeeId.getText().toString()), ClientRepo.find(clientId.getText().toString()),Calendar.getInstance().getTime(), addressStreet.getText().toString(),addressDistrict.getText().toString(),Integer.parseInt(addressNumber.getText().toString()),addressComplement.getText().toString());
+            ProjectRepo.addProject(project);
+        }catch (Exception e){
+            e.printStackTrace();
+            System.out.println("Crash");
+        }
+    }
 
     public void botaoinsta(View view) {
         Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.instagram.com/bomsomrv/"));

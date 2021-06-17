@@ -39,6 +39,14 @@ public class Project {
         setPlace(street,district,addressNumber,complement);
     }
 
+    public Project(String id, String name, String description, Client client, Date projectDate, Address place) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.client = client;
+        this.projectDate = projectDate;
+        this.place = place;
+    }
 
     public void addEmployee(Employee employee){
         listEmployee.add(employee);

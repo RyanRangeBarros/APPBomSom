@@ -8,5 +8,7 @@ public enum MusicStyle {
     FUNK,
     OUTROS,
     MPB,
-    FORRO
+    FORRO,
+    AXE,
+    BREGA
 }

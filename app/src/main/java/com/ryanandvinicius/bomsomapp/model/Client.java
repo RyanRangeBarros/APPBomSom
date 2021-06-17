@@ -8,16 +8,14 @@ public class Client {
     private String name;
     private String email;
     private String number;
-    private Date birthDate;
     private Address address;
     private MusicStyle style;
 
-    public Client(String cpf, String name, String email, String number, Date birthDate, MusicStyle style,
+    public Client(String cpf, String name, String email, String number, MusicStyle style,
                   String street, String district, int addressNumber, String complement) {
         setCpf(cpf);
         setName(name);
         setNumber(number);
-        setBirthDate(birthDate);
         setAddress(street,district,addressNumber,complement);
         setStyle(style);
     }
@@ -60,14 +58,6 @@ public class Client {
 
     public void setNumber(String number) {
         this.number = number;
-    }
-
-    public Date getBirthDate() {
-        return birthDate;
-    }
-
-    public void setBirthDate(Date birthDate) {
-        this.birthDate = birthDate;
     }
 
     public Address getAddress() {

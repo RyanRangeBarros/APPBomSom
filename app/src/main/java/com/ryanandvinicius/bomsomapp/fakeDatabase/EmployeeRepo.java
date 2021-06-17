@@ -1,23 +1,24 @@
 package com.ryanandvinicius.bomsomapp.fakeDatabase;
+import com.ryanandvinicius.bomsomapp.model.Client;
 import com.ryanandvinicius.bomsomapp.model.Employee;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class EmployeeRepo {
-    private List<Employee> employeeList;
+    private static List<Employee> employeeList;
 
-    public EmployeeRepo(){
+    static {
         employeeList = new ArrayList<>();
     }
 
-    public void addEmployee(Employee employee){
+    public static void addEmployee(Employee employee){
         if (employee != null){
             employeeList.add(employee);
         }
     }
 
-    public void editEmployee(Employee employee){
+    public static void editEmployee(Employee employee){
         if (employee != null){
             int index = findById(employee.getCpf());
             if (index >= 0){
@@ -26,7 +27,7 @@ public class EmployeeRepo {
         }
     }
 
-    private int findById(String id){
+    public static int findById(String id){
         for (int i = 0; i < employeeList.size(); i++){
             Employee e = employeeList.get(i);
             if (e.getCpf().trim().equals(id.trim())){
@@ -35,4 +36,26 @@ public class EmployeeRepo {
         }
         return -1;
     }
+
+
+
+    public static Employee find(String id){
+        for (Employee e: employeeList){
+            if (e.getCpf().trim().equals(id.trim())){
+                return e;
+            }
+        }
+        return null;
+    }
+
+
+    public static List<String> getAllNames(){
+        List<String> names = new ArrayList<>();
+
+        for (Employee e: employeeList){
+            names.add(e.getName());
+        }
+        return names;
+    }
+
 }
