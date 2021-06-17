@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.ryanandvinicius.bomsomapp">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.BomSomApp">
+        <activity android:name=".sobrebomsom" android:parentActivityName=".MainActivity">
+
+        </activity>
+        <activity
+            android:name=".listaprojeto"
+            android:parentActivityName=".cadastroprojeto"></activity>
+        <activity
+            android:name=".listaempregado"
+            android:parentActivityName=".cadastrofuncionario" />
+        <activity
+            android:name=".listacliente"
+            android:parentActivityName=".cadastrocliente" />
+        <activity
+            android:name=".cadastroprojeto"
+            android:parentActivityName=".Homeprox" />
+        <activity
+            android:name=".cadastrofuncionario"
+            android:parentActivityName=".Homeprox" />
+        <activity
+            android:name=".cadastrocliente"
+            android:parentActivityName=".Homeprox" />
+        <activity
+            android:name=".Homeprox"
+            android:parentActivityName=".MainActivity" />
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

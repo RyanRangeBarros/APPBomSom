@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backgroundTheme"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MainActivity"
+    android:id="@+id/layout_form_employee">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cadastro de Funcionarios"
+            android:textAlignment="center"
+            android:textColor="@color/headerColor"
+            android:textSize="30dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="65dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:text="CPF"
+            android:textColor="@color/headerInput"
+            android:textSize="25dp" />
+
+        <EditText
+            android:id="@+id/employee_cpf"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:hint="99999999999"
+            android:maxLength="11"
+            android:inputType="number"
+            android:textColor="@color/input"
+            android:textColorHint="@color/input" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:text="NOME"
+            android:textColor="@color/headerInput"
+            android:textSize="25dp" />
+
+
+        <EditText
+            android:id="@+id/employee_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:hint="Márcio Bueno"
+            android:inputType="text"
+            android:textColor="@color/input"
+            android:textColorHint="@color/input"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:text="EMAIL"
+            android:textColor="@color/headerInput"
+            android:textSize="25dp" />
+
+        <EditText
+            android:id="@+id/employee_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:hint="marcio@unicap.br"
+            android:inputType="text"
+            android:textColor="@color/input"
+            android:textColorHint="@color/input" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:text="ENDEREÇO"
+            android:textColor="@color/headerInput"
+            android:textSize="25dp" />
+
+        <EditText
+            android:id="@+id/employee_address_street"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:hint="Rua: Avenida Boa Viagem"
+            android:inputType="text"
+            android:textColor="@color/input"
+            android:textColorHint="@color/input" />
+
+
+        <EditText
+            android:id="@+id/employee_address_number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:hint="Numero: "
+            android:inputType="number"
+            android:textColor="@color/input"
+            android:textColorHint="@color/input" />
+
+        <EditText
+            android:id="@+id/employee_address_district"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:hint="Bairro: Boa Viagem"
+            android:inputType="text"
+            android:textColor="@color/input"
+            android:textColorHint="@color/input" />
+
+        <EditText
+            android:id="@+id/employee_address_complement"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:hint="Complemento: Apto 2001"
+            android:inputType="text"
+            android:textColor="@color/input"
+            android:textColorHint="@color/input" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:text="DATA DO EVENTO"
+            android:textColor="@color/headerInput"
+            android:textSize="25dp" />
+
+        <DatePicker
+            android:id="@+id/calendar_birth_date_employee"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="30dp"
+            android:paddingRight="20dp"/>
+
+        <Button
+            android:id="@+id/save_employee_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/buttons_styles"
+            android:textAlignment="center"
+            android:onClick="startListaEmpregado"
+            android:text="Save"
+            android:textSize="20dp"
+            android:layout_marginLeft="100dp"
+            android:layout_marginRight="100dp"
+            android:textColor="@color/inputColor"
+            android:layout_marginBottom="50dp"/>
+    </LinearLayout>
+
+</ScrollView>

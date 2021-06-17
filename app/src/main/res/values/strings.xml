@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">BomSomApp</string>
+    <string name="sobre_n_s">Sobre nós:</string>
+    <string name="nossos_clientes">Nossos Clientes:</string>
+    <string name="funcio">Nossos Funcionários:</string>
+    <string name="nossos_projetos">Nossos projetos:</string>
+    <string name="sobreus">Somos uma empresa focada em trazer a música para sua vida, nessa página você terá acesso ao nosso trabalho em progresso, clientes e funcionarios. Venha fazer parte dessa familia tambem!!</string>
+    <string name="clica">Clique para acessar:</string>
+    <string name="achando">Estamos localizados na avenida boa viagem. Você pode ir nos encontrar na loja fisica ou marcar com a gente em algum link abaixo. Estamos ansiosos para te-lo conosco</string>
+    <string name="botao_insta">botao_insta</string>
+    <string name="botao_bs">botao_BS</string>
+    <string name="botao_facebook">botao_facebook</string>
+    <string name="bsrecado">Um App criado para a cadeira de Desenvolvimento Mobile que tem como intuito recriar o site web da nossa empresa BomSom. aplicamos o possivel para recriar e fazer um trabalho multiplataforma bem bacana!!</string>
+
+    <string-array name="spinner_music_styles">
+        <item>Forró</item>
+        <item>Funk</item>
+        <item>Pop</item>
+        <item>Rock</item>
+        <item>Brega</item>
+        <item>Axé</item>
+        <item>Outros</item>
+    </string-array>
+
+</resources>
